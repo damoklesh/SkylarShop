@@ -1,0 +1,1152 @@
+{
+  "contractName": "IShop",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "itemId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "itemValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "itemAddedEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "itemId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "itemValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "itemBoughtEvent",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "itemId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountPaid",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyItem",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "weight",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "itemValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "addItem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"itemValue\",\"type\":\"uint256\"}],\"name\":\"itemAddedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"itemValue\",\"type\":\"uint256\"}],\"name\":\"itemBoughtEvent\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"itemValue\",\"type\":\"uint256\"}],\"name\":\"addItem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountPaid\",\"type\":\"uint256\"}],\"name\":\"buyItem\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface representing a virtual Shop.\",\"events\":{\"itemAddedEvent(address,uint256,uint256)\":{\"details\":\"Emitted when a new item has been added.\",\"params\":{\"itemValue\":\"The value of the item in P.O.\"}},\"itemBoughtEvent(address,uint256,uint256)\":{\"details\":\"Emitted when a new item has been bought.\",\"params\":{\"itemValue\":\"The value of the item in P.O.\"}}},\"kind\":\"dev\",\"methods\":{\"addItem(string,uint256,uint256)\":{\"details\":\"Adds and item to the shop catalog.\",\"params\":{\"itemValue\":\"The value of the item in P.O.\"}},\"buyItem(uint256,uint256)\":{\"details\":\"Explain to a developer any extra details\",\"params\":{\"amountPaid\":\"The amount paid for the item in P.O.\"},\"returns\":{\"_0\":\"True if the buy was successful, false otherwise.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"buyItem(uint256,uint256)\":{\"notice\":\"Buy the given item designed by the id parameter.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/IShop.sol\":\"IShop\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/IShop.sol\":{\"keccak256\":\"0x6b7accfb942d3f641a611f47ed16761d42665bd315c8e32720df60d74bba77d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c65c3ad3cc64b7fd323a1791885314dea0de7fb594452d7b6fa2f4e82ef6c97\",\"dweb:/ipfs/Qmc8e1u5YycvP818h5jBowtfw67xWaQCDySeXY9eDCQvH4\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.3;\n\n/**\n * @dev Interface representing a virtual Shop.\n */\ninterface IShop {\n    \n    /// @notice Buy the given item designed by the id parameter.\n    /// @dev Explain to a developer any extra details\n    /// @param amountPaid The amount paid for the item in P.O.\n    /// @return True if the buy was successful, false otherwise.\n    function buyItem(uint256 itemId, uint256 amountPaid) external returns (bool);\n\n    /// @dev Adds and item to the shop catalog.\n    /// @param itemValue The value of the item in P.O.\n    function addItem(string calldata name, uint256 weight, uint256 itemValue) external;\n\n    /// @dev Emitted when a new item has been bought.\n    /// @param itemValue The value of the item in P.O.\n    event itemBoughtEvent(address indexed buyer, uint256 itemId, uint256 itemValue);\n\n    /// @dev Emitted when a new item has been added.\n    /// @param itemValue The value of the item in P.O.\n    event itemAddedEvent(address indexed from, uint256 itemId, uint256 itemValue);\n\n}",
+  "sourcePath": "/home/damoklesh/workspace/solidity/skylar_treasury/contracts/Interfaces/IShop.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Interfaces/IShop.sol",
+    "exportedSymbols": {
+      "IShop": [
+        817
+      ]
+    },
+    "id": 818,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 777,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IShop",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 778,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:54:5",
+          "text": " @dev Interface representing a virtual Shop."
+        },
+        "fullyImplemented": false,
+        "id": 817,
+        "linearizedBaseContracts": [
+          817
+        ],
+        "name": "IShop",
+        "nameLocation": "122:5:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 779,
+              "nodeType": "StructuredDocumentation",
+              "src": "139:242:5",
+              "text": "@notice Buy the given item designed by the id parameter.\n @dev Explain to a developer any extra details\n @param amountPaid The amount paid for the item in P.O.\n @return True if the buy was successful, false otherwise."
+            },
+            "functionSelector": "9979c009",
+            "id": 788,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "buyItem",
+            "nameLocation": "395:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 781,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "411:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "403:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 780,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 783,
+                  "mutability": "mutable",
+                  "name": "amountPaid",
+                  "nameLocation": "427:10:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "419:18:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 782,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "419:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "402:36:5"
+            },
+            "returnParameters": {
+              "id": 787,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 786,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "457:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 785,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "457:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "456:6:5"
+            },
+            "scope": 817,
+            "src": "386:77:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 789,
+              "nodeType": "StructuredDocumentation",
+              "src": "469:98:5",
+              "text": "@dev Adds and item to the shop catalog.\n @param itemValue The value of the item in P.O."
+            },
+            "functionSelector": "d5e6c333",
+            "id": 798,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addItem",
+            "nameLocation": "581:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 791,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "605:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "589:20:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 790,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "589:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 793,
+                  "mutability": "mutable",
+                  "name": "weight",
+                  "nameLocation": "619:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "611:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 792,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 795,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "635:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "627:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 794,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "588:57:5"
+            },
+            "returnParameters": {
+              "id": 797,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "654:0:5"
+            },
+            "scope": 817,
+            "src": "572:83:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 799,
+              "nodeType": "StructuredDocumentation",
+              "src": "661:104:5",
+              "text": "@dev Emitted when a new item has been bought.\n @param itemValue The value of the item in P.O."
+            },
+            "id": 807,
+            "name": "itemBoughtEvent",
+            "nameLocation": "776:15:5",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 806,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 801,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "buyer",
+                  "nameLocation": "808:5:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "792:21:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 800,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "792:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 803,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "823:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "815:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 802,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "815:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 805,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "839:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "831:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 804,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "831:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:58:5"
+            },
+            "src": "770:80:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 808,
+              "nodeType": "StructuredDocumentation",
+              "src": "856:103:5",
+              "text": "@dev Emitted when a new item has been added.\n @param itemValue The value of the item in P.O."
+            },
+            "id": 816,
+            "name": "itemAddedEvent",
+            "nameLocation": "970:14:5",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 815,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 810,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "1001:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "985:20:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 809,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "985:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 812,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "1015:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "1007:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 811,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1007:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 814,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "1031:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "1023:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 813,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1023:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "984:57:5"
+            },
+            "src": "964:78:5"
+          }
+        ],
+        "scope": 818,
+        "src": "112:933:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1013:5"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/Interfaces/IShop.sol",
+    "exportedSymbols": {
+      "IShop": [
+        817
+      ]
+    },
+    "id": 818,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 777,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IShop",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 778,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:54:5",
+          "text": " @dev Interface representing a virtual Shop."
+        },
+        "fullyImplemented": false,
+        "id": 817,
+        "linearizedBaseContracts": [
+          817
+        ],
+        "name": "IShop",
+        "nameLocation": "122:5:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 779,
+              "nodeType": "StructuredDocumentation",
+              "src": "139:242:5",
+              "text": "@notice Buy the given item designed by the id parameter.\n @dev Explain to a developer any extra details\n @param amountPaid The amount paid for the item in P.O.\n @return True if the buy was successful, false otherwise."
+            },
+            "functionSelector": "9979c009",
+            "id": 788,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "buyItem",
+            "nameLocation": "395:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 781,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "411:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "403:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 780,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 783,
+                  "mutability": "mutable",
+                  "name": "amountPaid",
+                  "nameLocation": "427:10:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "419:18:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 782,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "419:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "402:36:5"
+            },
+            "returnParameters": {
+              "id": 787,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 786,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 788,
+                  "src": "457:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 785,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "457:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "456:6:5"
+            },
+            "scope": 817,
+            "src": "386:77:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 789,
+              "nodeType": "StructuredDocumentation",
+              "src": "469:98:5",
+              "text": "@dev Adds and item to the shop catalog.\n @param itemValue The value of the item in P.O."
+            },
+            "functionSelector": "d5e6c333",
+            "id": 798,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addItem",
+            "nameLocation": "581:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 791,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "605:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "589:20:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 790,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "589:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 793,
+                  "mutability": "mutable",
+                  "name": "weight",
+                  "nameLocation": "619:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "611:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 792,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 795,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "635:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 798,
+                  "src": "627:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 794,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "588:57:5"
+            },
+            "returnParameters": {
+              "id": 797,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "654:0:5"
+            },
+            "scope": 817,
+            "src": "572:83:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 799,
+              "nodeType": "StructuredDocumentation",
+              "src": "661:104:5",
+              "text": "@dev Emitted when a new item has been bought.\n @param itemValue The value of the item in P.O."
+            },
+            "id": 807,
+            "name": "itemBoughtEvent",
+            "nameLocation": "776:15:5",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 806,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 801,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "buyer",
+                  "nameLocation": "808:5:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "792:21:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 800,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "792:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 803,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "823:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "815:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 802,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "815:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 805,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "839:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 807,
+                  "src": "831:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 804,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "831:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:58:5"
+            },
+            "src": "770:80:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 808,
+              "nodeType": "StructuredDocumentation",
+              "src": "856:103:5",
+              "text": "@dev Emitted when a new item has been added.\n @param itemValue The value of the item in P.O."
+            },
+            "id": 816,
+            "name": "itemAddedEvent",
+            "nameLocation": "970:14:5",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 815,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 810,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "1001:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "985:20:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 809,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "985:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 812,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "1015:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "1007:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 811,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1007:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 814,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "itemValue",
+                  "nameLocation": "1031:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 816,
+                  "src": "1023:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 813,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1023:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "984:57:5"
+            },
+            "src": "964:78:5"
+          }
+        ],
+        "scope": 818,
+        "src": "112:933:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1013:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-12-27T17:53:12.477Z",
+  "devdoc": {
+    "details": "Interface representing a virtual Shop.",
+    "events": {
+      "itemAddedEvent(address,uint256,uint256)": {
+        "details": "Emitted when a new item has been added.",
+        "params": {
+          "itemValue": "The value of the item in P.O."
+        }
+      },
+      "itemBoughtEvent(address,uint256,uint256)": {
+        "details": "Emitted when a new item has been bought.",
+        "params": {
+          "itemValue": "The value of the item in P.O."
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "addItem(string,uint256,uint256)": {
+        "details": "Adds and item to the shop catalog.",
+        "params": {
+          "itemValue": "The value of the item in P.O."
+        }
+      },
+      "buyItem(uint256,uint256)": {
+        "details": "Explain to a developer any extra details",
+        "params": {
+          "amountPaid": "The amount paid for the item in P.O."
+        },
+        "returns": {
+          "_0": "True if the buy was successful, false otherwise."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "buyItem(uint256,uint256)": {
+        "notice": "Buy the given item designed by the id parameter."
+      }
+    },
+    "version": 1
+  }
+}
