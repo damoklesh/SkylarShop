@@ -1103,7 +1103,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-27T17:53:12.477Z",
+  "updatedAt": "2022-01-14T23:26:27.398Z",
   "devdoc": {
     "details": "Interface representing a virtual Shop.",
     "events": {

@@ -27,13 +27,15 @@ contract Shop is IShop, Ownable {
 
     address private _poTokenContractAddress;
 
-    event testEvent(address indexed tokenAddress);
+    PoToken private poToken;
 
 
     constructor (address poTokenContract) {
         _itemsCount = 1;
 
         _poTokenContractAddress = poTokenContract;
+
+        poToken = PoToken(_poTokenContractAddress);
     }
 
      function buyItem(uint256 itemId, uint256 amountPaid) external override returns (bool) {
@@ -46,7 +48,9 @@ contract Shop is IShop, Ownable {
 
         // Substract sent value from user PO total
         // FIXME FIX DELEGATECALL ALWAYS RETURN FALSE
-        (bool transferSucceded, )  = _poTokenContractAddress.delegatecall(abi.encodeWithSignature("transfer(address recipient, uint256 amount)", owner(),amountPaid));
+        //(bool transferSucceded, )  = _poTokenContractAddress.delegatecall(abi.encodeWithSignature("transfer(address recipient, uint256 amount)", owner(),amountPaid));
+        // Ask for approval
+        (bool transferSucceded)  = poToken.transferFrom(msg.sender, address(this),amountPaid);
 
         require(transferSucceded == true, "The Payment failed");
         // Buy the item, updating the mapping
@@ -58,6 +62,7 @@ contract Shop is IShop, Ownable {
         // Emit Event and return
         emit itemBoughtEvent(msg.sender, itemId, amountPaid);
 
+        // video polizei https://twitter.com/LFConaction/status/1476160967071477763
         return true;
      }
 
@@ -71,8 +76,6 @@ contract Shop is IShop, Ownable {
   
         // emit event
         emit itemAddedEvent(msg.sender, _itemsCount, itemValue);
-
-        emit testEvent(_poTokenContractAddress);
 
         _itemsCount++;
     }
