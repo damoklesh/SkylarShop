@@ -1,2 +1,10 @@
 # SkylarShop
-Solidity Learning Exercise
+
+Coding for fun. Creating a Dungeons and Dragons fantasy item shop on the Ethereum blokchain. Coded on Solidity, using Truffle and ReactJs. 
+
+The project includes: 
+
+  - New ERC20 token: POToken representing Fantasy Gold Pieces. This is the in-game money to buy items.
+  - A Shop contract: This contracts manages the buy/sell actions denominated in PoToken.
+  - New ERC721 NFT token: This token represents a fantasy Item like swords, shields and the like.
+
