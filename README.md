@@ -1,6 +1,6 @@
 # SkylarShop
 
-Coding for fun. Creating a Dungeons and Dragons fantasy item shop on the Ethereum blokchain. Coded on Solidity, using Truffle and ReactJs. 
+Coding for fun. Creating a Dungeons and Dragons fantasy item shop on the Ethereum blokchain. Coded on Solidity, using Truffle and ReactJs.WIP 
 
 The project includes: 
 
