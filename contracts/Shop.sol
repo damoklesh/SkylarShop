@@ -47,9 +47,7 @@ contract Shop is IShop, Ownable {
         require(amountPaid == ownedItems[address(0)][itemId].value,"The sent amount has to be equal to the item value");
 
         // Substract sent value from user PO total
-        // FIXME FIX DELEGATECALL ALWAYS RETURN FALSE
-        //(bool transferSucceded, )  = _poTokenContractAddress.delegatecall(abi.encodeWithSignature("transfer(address recipient, uint256 amount)", owner(),amountPaid));
-        // Ask for approval
+        // Ask for approval on UI
         (bool transferSucceded)  = poToken.transferFrom(msg.sender, address(this),amountPaid);
 
         require(transferSucceded == true, "The Payment failed");
@@ -71,7 +69,6 @@ contract Shop is IShop, Ownable {
         // check if the item already exist. DONT IMPLEMENT, expensive, maybe different with NFTs.
         
         // Add The item
-        // FIXME I think that the name is not being set because the parameter is calldata and the struct is other thing
         ownedItems[address(0)][_itemsCount] = Item(_itemsCount,weight, name,itemValue);
   
         // emit event

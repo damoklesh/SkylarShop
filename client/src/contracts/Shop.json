@@ -118,7 +118,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -131,7 +132,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -12442,14 +12444,85 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x30ba0973c8764fa291413faa63c69743d37b52211aeceb5d5d6aeb1ad61bc238": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "itemId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "itemValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "itemAddedEvent",
+          "type": "event"
+        },
+        "0x42bd7fff052b0131f384bedc5db31c77835e12c3bf0540cb8debe7ddb35bcc38": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "itemId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "itemValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "itemBoughtEvent",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xD51DfF297163C3F2941d4FCD9d7E2c87c7a7E8B3",
-      "transactionHash": "0xbcb1c92e2a973aed2e800e87de09f013e0a9ac69805955428e1e68a30775d521"
+      "address": "0x04f97E544e78DFF341CC252E8f7d80F23B802307",
+      "transactionHash": "0xa14fbd147a39d681d9e817020dc0abd3b3d0019bdf0068ef63a36c36b990946f"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-14T23:26:27.418Z",
+  "updatedAt": "2022-01-16T17:44:33.425Z",
+  "networkType": "ethereum",
   "devdoc": {
     "details": "Interface representing a virtual Shop.",
     "kind": "dev",

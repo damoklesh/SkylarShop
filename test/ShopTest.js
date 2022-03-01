@@ -18,7 +18,6 @@ contract("Shop", accounts => {
         // TODO this element is always a default item.
         const item = await shopContractInstance.ownedItems.call(ZERO_ADDRESS,8400);
         console.log("address: " + initialHolder);
-        console.log(item);
 
         // expect
         //assert.equal(item.value.toNumber(),8400,"The item value doesnt match");
