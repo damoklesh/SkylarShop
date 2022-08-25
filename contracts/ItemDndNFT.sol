@@ -27,10 +27,6 @@ using Counters for Counters.Counter;
 constructor() 
 ERC721PresetMinterPauserAutoId("ItemDndNFT", "IDnD", "baseURI") {}
 
-    // The existing items listed by owner.
-    // FIXME I think i dont need this mapping because of the _owners mapping (tokenId => address).
-    mapping(address => mapping(uint256 => Item)) public ownedItems;
-
     // Mapping of items structs by tokenId
     mapping(uint256 => Item) public itemsByTokenId;
 
@@ -46,7 +42,8 @@ ERC721PresetMinterPauserAutoId("ItemDndNFT", "IDnD", "baseURI") {}
      * - the caller must have the `MINTER_ROLE`.
      */
     function mint(address to, string memory itemName, uint256 itemWeight, uint256 itemValue) public virtual {
-        require(hasRole(MINTER_ROLE, _msgSender()), "ERC721PresetMinterPauserAutoId: must have minter role to mint");
+        // FIXME I need to find a way to make the Shop contract a Minter to uncomment this line.
+        //require(hasRole(MINTER_ROLE, _msgSender()), "ERC721PresetMinterPauserAutoId: must have minter role to mint");
 
         // We cannot just use balanceOf to create the new tokenId because tokens
         // can be burned (destroyed), so we need a separate counter.
@@ -66,6 +63,14 @@ ERC721PresetMinterPauserAutoId("ItemDndNFT", "IDnD", "baseURI") {}
 
         string memory baseURI = _baseURI(tokenId);
         return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, Strings.toString(tokenId))) : "";
+    }
+
+    /**
+     * @dev Used for simplicity.
+     * Getter: Gets the given item value.
+     */
+    function getItemValue(uint256 tokenId) public view virtual returns (uint256) {
+        return itemsByTokenId[tokenId].value;
     }
 
     /**
